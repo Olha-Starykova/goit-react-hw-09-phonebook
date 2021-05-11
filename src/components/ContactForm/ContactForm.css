@@ -1,0 +1,14 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border: 1px solid rgb(207, 80, 129);
+  padding: 20px;
+}
+
+.button {
+  padding: 5px;
+  margin: auto;
+  margin-top: 5px;
+  background-color: rgb(236, 103, 207);
+}
