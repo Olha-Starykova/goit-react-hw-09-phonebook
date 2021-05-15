@@ -24,34 +24,39 @@ export default function  App () {
     dispatch(authOperations.getCurrentUser())
   }, [dispatch]);
   
-    return (
-      <div>
-        <AppBar />
+  return (
+    <div>
+      <AppBar />
         
-        <Suspense fallback={<p>Загружаем...</p>}>
-          <Switch>
-            <PublicRoute exact path="/" component={HomeView} />
-            <PublicRoute
-              path="/register"
-              restricted
-              redirectTo="/contacts"
-              component={RegisterView}
-            />
-            <PublicRoute
-              path="/login"
-              restricted
-              redirectTo="/contacts"
-              component={LoginView}
-            />
-            <PrivateRoute
-              path="/contacts"
-              redirectTo="/login"
-              component={TodosView}
-            />
-          </Switch>
-        </Suspense>
-      </div>
-    );
+      <Suspense fallback={<p>Загружаем...</p>}>
+        <Switch>
+          <PublicRoute exact path="/">
+            <HomeView />
+          </PublicRoute>
+            
+          <PublicRoute
+            path="/register"
+            restricted
+            redirectTo="/contacts" >
+            < RegisterView />
+          </PublicRoute>
+              
+          <PublicRoute
+            path="/login"
+            restricted
+            redirectTo="/contacts" >
+            <LoginView />
+          </PublicRoute>
+            
+          <PrivateRoute
+            path="/contacts"
+            redirectTo="/login">
+            <TodosView />
+          </PrivateRoute>
+        </Switch>
+      </Suspense>
+    </div>
+  );
   }
 
 

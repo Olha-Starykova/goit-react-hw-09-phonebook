@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import PropTypes from "prop-types";
   //ставим npm i shortid
 import shortid from 'shortid';
 import './ContactForm.css'
@@ -32,23 +31,20 @@ export default function ContactForm() {
     setNumber(e.currentTarget.value)
   },[]);
    
-  const   hendelSubmit = useCallback( e => { 
+  const  hendelSubmit = useCallback( e => { 
     e.preventDefault();
     
         if (contacts.map(({ name }) => name).includes(name)) {
         alert(`${name} is already in contacts`)
         return
     }
+
      dispatch(contactsOperations.addTodo(name, number)) 
 //this.props.onSubmit( this.state.name, this.state.number)
-      
-
-   
-    //сброс формы очистить стейт
- 
+         
     setName('')
     setNumber('')
- },[dispatch, name, number])
+  },[dispatch, name, number])
 
 //     //общий метод для инпутов патерн для форм по внешнему виду контролируемый елемент
 //     hendelChange = e => {
@@ -75,7 +71,6 @@ export default function ContactForm() {
 //       number: ''
 //     })
 //   };
-
 
     
       return (
@@ -113,9 +108,9 @@ export default function ContactForm() {
   };
 
 
-   ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+//    ContactForm.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
 
 
 // const mapStateToProps = state => {
