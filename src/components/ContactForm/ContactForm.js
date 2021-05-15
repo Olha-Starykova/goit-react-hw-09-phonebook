@@ -44,7 +44,7 @@ export default function ContactForm() {
          
     setName('')
     setNumber('')
-  },[dispatch, name, number])
+  },[dispatch, name, number,contacts])
 
 //     //общий метод для инпутов патерн для форм по внешнему виду контролируемый елемент
 //     hendelChange = e => {
@@ -92,7 +92,7 @@ export default function ContactForm() {
               type="tel"
               value={number}
               name="number"
-              //pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
+              pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
               title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
               id={numberInputId}
               onChange={hendelChangeNumber}

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import './Filter.css'
 import { useDispatch, useSelector } from 'react-redux';
 import * as contactsActions from '../../redux/contacts/contacts-actions'
