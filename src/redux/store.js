@@ -23,13 +23,15 @@ import contactsReduser from './contacts/contacts-reducer'
 
 //console.log(getDefaultMiddleware())
 
-
+const loggerMiddelware = process.env.NODE_ENV === 'development'? logger : undefined
 
 const middleware = [...getDefaultMiddleware({
     serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    }
-}), logger,];
+    },
+     devTools: process.env.NODE_ENV === 'development',
+
+}),loggerMiddelware];
 
 // const rootReducer = combineReducers({
 //       contacts: persistReducer(persistConfig, contactsReduser) 
