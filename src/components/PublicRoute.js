@@ -15,11 +15,12 @@ const PublicRoute = ({
   ...routeProps
 }) => {
   const isLoggeIn = useSelector(authSelectors.getIsAuthenticated)
-  return <Route {...routeProps}>
-    {isLoggeIn && routeProps.restricted ? (
+  return (
+    <Route {...routeProps}>
+      {isLoggeIn && routeProps.restricted ? (
         <Redirect to={redirectTo} />
-      ) :( children)}
-  </Route>
+      ) : (children)}
+    </Route>);
 };
 
 export default PublicRoute;
