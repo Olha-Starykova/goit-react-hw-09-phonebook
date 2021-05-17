@@ -25,22 +25,15 @@ import contactsReduser from './contacts/contacts-reducer'
 
 
 
-//const loggerMiddelware = process.env.NODE_ENV === 'development' ? logger : undefined
 
-//=====
-// const middleware = [];
-// if (process.env.NODE_ENV === 'development'){
-// middleware.push(logger)
-// }
-// middleware.push([...getDefaulutMiddleware...])
-//=====
+
+
 
 const middleware = [...getDefaultMiddleware({
     serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-    //  devTools: process.env.NODE_ENV === 'development',
-
+    
 }),];
 
 
